@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAlignment="center">
+
+    <TextView
+        android:id="@+id/exerciseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Exercise Name" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="34dp"
+        android:text="@string/reps"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseName" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/weight"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/LableNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:text="@string/notes"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/input_reps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="49dp"
+        android:width="120dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        tools:ignore="LabelFor,SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/input_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="120dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/input_reps"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_exercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_weight"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:ignore="ImageContrastCheck" />
+
+    <EditText
+        android:id="@+id/notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/workoutNotes"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="@+id/input_weight"
+        app:layout_constraintTop_toTopOf="@+id/LableNotes"
+        android:importantForAutofill="no" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

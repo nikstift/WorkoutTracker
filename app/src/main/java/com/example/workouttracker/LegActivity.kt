@@ -1,0 +1,39 @@
+package com.example.workouttracker
+
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
+const private val LOG_TAG = "Leg_Activity"
+class LegActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_exercise_list)
+        val workoutName = findViewById<TextView>(R.id.workoutName)
+        workoutName.text = intent.getStringExtra(Intent.EXTRA_TEXT)
+
+        val recyclerView = findViewById<RecyclerView>(R.id.rvExercises)
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        val adapter = ExerciseListAdapter(createLegExercises())
+        val divider = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
+        recyclerView.addItemDecoration(divider)
+
+    }
+}
+
+fun createLegExercises():List<Exercise>{
+    val exerciseList = mutableListOf<Exercise>()
+    exerciseList += Exercise("Hack Squat")
+    exerciseList += Exercise("Beinbeuger")
+    exerciseList += Exercise("Beinstrecker")
+    exerciseList += Exercise("Hip Thrust")
+    exerciseList += Exercise("Waden heben")
+    return exerciseList
+}

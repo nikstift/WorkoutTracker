@@ -1,0 +1,41 @@
+# Android Project README
+
+This README provides an overview of the Android project developed as a part of the university assignment. The project consists of several blocks, each implementing different functionalities and features. Here's an outline of the implemented blocks:
+
+## Block 1: Navigation
+In this block, navigation between screens was implemented using Intents. The project includes additional screens, and the navigation is triggered by a button click. Intent extras are used to pass data between screens.
+
+Implemented features:
+- Navigating from the Main Activity to the Push Activity and passing the name of the workout.
+- Intents were used to navigate from one activity to the other.
+- Retrieving and processing arguments in the destination activity or fragment.
+
+## Block 3: RecyclerView and Lists
+This block focuses on displaying a list of items using a RecyclerView and implementing necessary components such as adapters and view holders.
+
+Implemented features:
+- Integration of a RecyclerView in the Push Workout activity (and others).
+- Creation of a custom adapter to populate the RecyclerView with items.
+- Designing a list item layout to represent the content of each item.
+- Utilizing view holders and the `findViewById()` method to access and bind views.
+- Implementing item click functionality, to navigate to the detail activity.
+
+## Block 4: Dialogs
+In this block, the project includes the implementation of dialogs using the MaterialAlertDialog.Builder. The dialogs is triggered by clicking a FAB, and a Snackbar is triggered by clicking buttons within the dialog.
+
+Implemented features:
+- Displaying a dialog triggered by a Floating Action Button (FAB) in the Detail Activity.
+- Creating a dialog using the MaterialAlertDialog.Builder and showing it.
+- Adding content to the dialog body.
+- Adding buttons to the dialog and displaying a Snackbar upon dialog button click.
+
+## Project Structure
+The implemented blocks can be found in the following activities and fragments:
+- Main Activity: Implements Block 1 by navigating to the Push Activity and passing the workout name.
+- Push Activity: Implements Block 3 by incorporating a RecyclerView and displaying contact names. It also allows navigation to the Detail Activity on item click.
+- Detail Activity: Implements Block 4 by creating a dialog triggered by a Floating Action Button (FAB). Additionally, a Snack-bar is displayed upon dialog button click.
+- The requirements for the main activity are mainly covered in the Main Activity and the Detail activity.
+
+Please note that this README provides a brief summary of the implemented blocks and does not include every detail or code snippet.
+
+
