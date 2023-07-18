@@ -11,6 +11,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
+import java.util.Date
 
 
 class DetailActivity : AppCompatActivity() {
@@ -18,6 +20,9 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var notesEditText: EditText
     private lateinit var repsEditText: EditText
     private lateinit var weightEditText: EditText
+    private val sets = mutableListOf<ExerciseSet>()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -37,13 +42,21 @@ class DetailActivity : AppCompatActivity() {
     }
 
     fun showAlertDialog() {
-        val repetitions = findViewById<TextView>(R.id.input_reps).text
-        val weight = findViewById<TextView>(R.id.input_weight).text
+        val repetitions = findViewById<TextView>(R.id.input_reps).text.toString().toInt()
+        val weight = findViewById<TextView>(R.id.input_weight).text.toString().toDouble()
+        val currentDate = SimpleDateFormat("yyyy-MM-dd").format(Date())
+        val exerciseName = intent.getStringExtra(Intent.EXTRA_TEXT) ?: ""
+        val notes = notesEditText.text.toString()
+
+        val exerciseSet = ExerciseSet(repetitions, weight, currentDate, exerciseName, notes)
+
         val mdialog = MaterialAlertDialogBuilder(this)
             .setCancelable(true)
             .setTitle("Add exercise?")
             .setMessage("Do you want to add $repetitions reps of $weight KG of the exercise?")
-            .setPositiveButton("Add exercise") { dialog, which -> showSnackbar("Awesome, well done!") }
+            .setPositiveButton("Add set") { dialog, which ->
+                sets.add(exerciseSet)
+                showSnackbar("Awesome, well done!") }
             .setNegativeButton("Cancel") { dialog, which -> showSnackbar("Too bad, go harder!") }
         mdialog.show()
     }
