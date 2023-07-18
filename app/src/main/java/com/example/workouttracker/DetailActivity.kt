@@ -33,6 +33,7 @@ class DetailActivity : AppCompatActivity() {
             showAlertDialog()
             hideKeyboardForAllFields()
         }
+
     }
 
     fun showAlertDialog() {
