@@ -16,6 +16,7 @@ import java.util.Date
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -37,6 +38,26 @@ class DetailActivity : AppCompatActivity() {
         val exerciseName = findViewById<TextView>(R.id.exerciseName)
         exerciseName.text = intent.getStringExtra(Intent.EXTRA_TEXT)
         val addExercise = findViewById<FloatingActionButton>(R.id.add_exercise)
+
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNavigationView.selectedItemId = R.id.workout
+
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.workout -> {
+                    // Der "Workout"-Eintrag ist bereits ausgewählt, daher hier nichts tun
+                    true
+                }
+                R.id.history -> {
+                    // Hier starten Sie die HistoryActivity
+                    val intent = Intent(this@DetailActivity, History::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
 
         sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         notesEditText = findViewById(R.id.notes)
